@@ -21,6 +21,8 @@ set ignorecase
 set wildmode=longest,list
 set signcolumn=yes " number
 set updatetime=100
+set termguicolors
+set smartindent
 
 filetype plugin indent on
 filetype plugin on
@@ -35,6 +37,8 @@ noremap s h
 noremap gl $
 noremap U <C-r>
 noremap d x
+noremap gp <C-o>
+noremap gn <C-i>
 
 ]]
 

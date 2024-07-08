@@ -82,5 +82,26 @@ require("lazy").setup({
     cmd = "Trouble",
     opts = {},
   },
-  "ms-jpq/coq_nvim",
+  {
+    "ms-jpq/coq_nvim",
+    config = function()
+      vim.cmd [[
+        COQnow
+      ]]
+    end
+  },
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      require("conform").setup {
+        formatters_by_ft = {
+          cpp = { "clang-format" },
+        },
+        format_on_save = {
+          timeout_ms = 200,
+          lsp_format = "fallback",
+        },
+      }
+    end
+  },
 })
