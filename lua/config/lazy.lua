@@ -51,7 +51,7 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     dependencies = {"nvim-tree/nvim-web-devicons"},
     config = function()
-      require("lualine").setup { options = {theme = 'horizon'} }
+      require("lualine").setup { options = {theme = 'kanagawa_paper'} }
     end
   },
   {
@@ -68,7 +68,8 @@ require("lazy").setup({
         nnoremap <leader>td <cmd>TodoTelescope<cr>
         " TODO: This should be store din the trouble.nvim config but it doesn't
         " seem to invoke the config function.
-        nnoremap <leader>tt <cmd>TodoTrouble<cr>
+        nnoremap <leader>td <cmd>TodoTrouble<cr>
+        nnoremap <leader>tt <cmd>Trouble diagnostics toggle filter.buf=0<cr>
       ]]
     end
   },
@@ -76,6 +77,20 @@ require("lazy").setup({
     "folke/todo-comments.nvim",
     dependencies = {"nvim-lua/plenary.nvim"},
     opts = {},
+  },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
   },
   {
     "folke/trouble.nvim",
@@ -104,4 +119,16 @@ require("lazy").setup({
       }
     end
   },
+  -- Theme
+  {
+    "sho-87/kanagawa-paper.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      vim.cmd [[
+        colorscheme kanagawa-paper
+      ]]
+    end
+  }
 })

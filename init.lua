@@ -39,6 +39,8 @@ noremap U <C-r>
 noremap d x
 noremap gp <C-o>
 noremap gn <C-i>
+xnoremap <S-h> <
+xnoremap <S-l> >
 
 ]]
 
